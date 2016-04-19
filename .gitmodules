@@ -1,0 +1,9 @@
+[submodule "ThirdParty/Swiftline"]
+	path = ThirdParty/Swiftline
+	url = https://github.com/Swiftline/Swiftline.git
+[submodule "ThirdParty/KanbanizeAPI"]
+	path = ThirdParty/KanbanizeAPI
+	url = git@github.com:diejmon/KanbanizeAPI.git
+[submodule "ThirdParty/Locksmith"]
+	path = ThirdParty/Locksmith
+	url = https://github.com/matthewpalmer/Locksmith.git
