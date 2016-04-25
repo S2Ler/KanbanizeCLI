@@ -8,6 +8,17 @@
 
 import Foundation
 
-print(Args.all)
+if Args.parsed.parameters.contains("help") {
+  exit(0)
+}
+
+let flags = Args.parsed.flags
+guard let apiKey = flags["api_key"],
+  let domain = flags["domain"] else { exit(-1) }
+
+let client = Client(subdomain: domain, loginInfo: .APIKey(apiKey))
+client.login { (result) in
+  print(result)
+}
 
 NSRunLoop.currentRunLoop().run()

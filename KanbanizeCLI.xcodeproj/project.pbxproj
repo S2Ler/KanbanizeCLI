@@ -46,6 +46,13 @@
 		096D7B3F1CC69C470077CB3B /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7B361CC69C470077CB3B /* Response.swift */; };
 		096D7B401CC69C470077CB3B /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7B371CC69C470077CB3B /* URL.swift */; };
 		096D7B411CC69CD30077CB3B /* AddComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7B321CC69C470077CB3B /* AddComment.swift */; };
+		096D7B4A1CC6A3520077CB3B /* Dictionary_Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7B431CC6A3520077CB3B /* Dictionary_Initializers.swift */; };
+		096D7B4B1CC6A3520077CB3B /* Locksmith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7B441CC6A3520077CB3B /* Locksmith.swift */; };
+		096D7B4C1CC6A3520077CB3B /* LocksmithAccessibleOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7B451CC6A3520077CB3B /* LocksmithAccessibleOption.swift */; };
+		096D7B4D1CC6A3520077CB3B /* LocksmithError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7B461CC6A3520077CB3B /* LocksmithError.swift */; };
+		096D7B4E1CC6A3520077CB3B /* LocksmithInternetAuthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7B471CC6A3520077CB3B /* LocksmithInternetAuthenticationType.swift */; };
+		096D7B4F1CC6A3520077CB3B /* LocksmithInternetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7B481CC6A3520077CB3B /* LocksmithInternetProtocol.swift */; };
+		096D7B501CC6A3520077CB3B /* LocksmithSecurityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7B491CC6A3520077CB3B /* LocksmithSecurityClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -101,6 +108,13 @@
 		096D7B351CC69C470077CB3B /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = ThirdParty/KanbanizeAPI/Sources/Request.swift; sourceTree = "<group>"; };
 		096D7B361CC69C470077CB3B /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = ThirdParty/KanbanizeAPI/Sources/Response.swift; sourceTree = "<group>"; };
 		096D7B371CC69C470077CB3B /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URL.swift; path = ThirdParty/KanbanizeAPI/Sources/URL.swift; sourceTree = "<group>"; };
+		096D7B431CC6A3520077CB3B /* Dictionary_Initializers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dictionary_Initializers.swift; path = ThirdParty/Locksmith/Source/Dictionary_Initializers.swift; sourceTree = "<group>"; };
+		096D7B441CC6A3520077CB3B /* Locksmith.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Locksmith.swift; path = ThirdParty/Locksmith/Source/Locksmith.swift; sourceTree = "<group>"; };
+		096D7B451CC6A3520077CB3B /* LocksmithAccessibleOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocksmithAccessibleOption.swift; path = ThirdParty/Locksmith/Source/LocksmithAccessibleOption.swift; sourceTree = "<group>"; };
+		096D7B461CC6A3520077CB3B /* LocksmithError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocksmithError.swift; path = ThirdParty/Locksmith/Source/LocksmithError.swift; sourceTree = "<group>"; };
+		096D7B471CC6A3520077CB3B /* LocksmithInternetAuthenticationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocksmithInternetAuthenticationType.swift; path = ThirdParty/Locksmith/Source/LocksmithInternetAuthenticationType.swift; sourceTree = "<group>"; };
+		096D7B481CC6A3520077CB3B /* LocksmithInternetProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocksmithInternetProtocol.swift; path = ThirdParty/Locksmith/Source/LocksmithInternetProtocol.swift; sourceTree = "<group>"; };
+		096D7B491CC6A3520077CB3B /* LocksmithSecurityClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocksmithSecurityClass.swift; path = ThirdParty/Locksmith/Source/LocksmithSecurityClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +157,7 @@
 		096D7AE91CC699BA0077CB3B /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
+				096D7B421CC6A3420077CB3B /* Locksmith */,
 				096D7AEF1CC699FC0077CB3B /* Swiftline */,
 				096D7AF01CC69A010077CB3B /* KanabanizeAPI */,
 			);
@@ -209,6 +224,20 @@
 			path = ThirdParty/KanbanizeAPI/Sources/Functions;
 			sourceTree = "<group>";
 		};
+		096D7B421CC6A3420077CB3B /* Locksmith */ = {
+			isa = PBXGroup;
+			children = (
+				096D7B431CC6A3520077CB3B /* Dictionary_Initializers.swift */,
+				096D7B441CC6A3520077CB3B /* Locksmith.swift */,
+				096D7B451CC6A3520077CB3B /* LocksmithAccessibleOption.swift */,
+				096D7B461CC6A3520077CB3B /* LocksmithError.swift */,
+				096D7B471CC6A3520077CB3B /* LocksmithInternetAuthenticationType.swift */,
+				096D7B481CC6A3520077CB3B /* LocksmithInternetProtocol.swift */,
+				096D7B491CC6A3520077CB3B /* LocksmithSecurityClass.swift */,
+			);
+			name = Locksmith;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -269,9 +298,14 @@
 				096D7B241CC69C390077CB3B /* PromptSettings.swift in Sources */,
 				096D7B3A1CC69C470077CB3B /* Executor.swift in Sources */,
 				096D7AD51CC695640077CB3B /* main.swift in Sources */,
+				096D7B501CC6A3520077CB3B /* LocksmithSecurityClass.swift in Sources */,
+				096D7B4C1CC6A3520077CB3B /* LocksmithAccessibleOption.swift in Sources */,
+				096D7B4B1CC6A3520077CB3B /* Locksmith.swift in Sources */,
 				096D7B291CC69C390077CB3B /* StringBackgroundColorizer.swift in Sources */,
+				096D7B4A1CC6A3520077CB3B /* Dictionary_Initializers.swift in Sources */,
 				096D7AE41CC696C50077CB3B /* Commands.swift in Sources */,
 				096D7B401CC69C470077CB3B /* URL.swift in Sources */,
+				096D7B4E1CC6A3520077CB3B /* LocksmithInternetAuthenticationType.swift in Sources */,
 				096D7B2C1CC69C390077CB3B /* StringStyleColorizer.swift in Sources */,
 				096D7B281CC69C390077CB3B /* ShortHandRunner.swift in Sources */,
 				096D7B391CC69C470077CB3B /* Client.swift in Sources */,
@@ -282,6 +316,8 @@
 				096D7B221CC69C390077CB3B /* PromptPrinter.swift in Sources */,
 				096D7B1B1CC69C380077CB3B /* Choose.swift in Sources */,
 				096D7B201CC69C380077CB3B /* Glob.swift in Sources */,
+				096D7B4F1CC6A3520077CB3B /* LocksmithInternetProtocol.swift in Sources */,
+				096D7B4D1CC6A3520077CB3B /* LocksmithError.swift in Sources */,
 				096D7B411CC69CD30077CB3B /* AddComment.swift in Sources */,
 				096D7B141CC69C380077CB3B /* ArgConvertible.swift in Sources */,
 				096D7B381CC69C470077CB3B /* APIFunctions.swift in Sources */,
