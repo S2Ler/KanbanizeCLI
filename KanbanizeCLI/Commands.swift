@@ -8,9 +8,11 @@
 
 import Foundation
 
+typealias CommandCompletion = (message: Result<String, CommandError>) -> ()
+
 protocol Command {
   init(args: ParsedArgs)
-  func execute(completion: (message: Result<String, CommandError>) -> ()) throws
+  func execute(completion: CommandCompletion) throws
   static var name: String { get }
 }
 

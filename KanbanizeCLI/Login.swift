@@ -16,8 +16,8 @@ final class LoginCommand: Command {
   }
   
   var kanbanizeClient: Client?
-  
-  func execute(completion: (message: Result<String, CommandError>) -> ()) throws {
+
+  func execute(completion: CommandCompletion) throws {
     if let apiKey = args.flags[Params.APIKey.rawValue],
        let subdomain = args.flags[Params.Subdomain.rawValue] {
       try saveLoginInfo(apiKey: apiKey, subdomain: subdomain)
@@ -29,26 +29,29 @@ final class LoginCommand: Command {
       
       let kanbanizeClient = Client(subdomain: subdomain, loginInfo: Client.LoginInfo.Password(email: email, password: password))
       self.kanbanizeClient = kanbanizeClient
-      
-      kanbanizeClient.login({ result in
-        switch result {
-        case .Success(let loginResult):
-          if let apiKey = loginResult?.apiKey {
-            do {
-              try self.saveLoginInfo(apiKey: apiKey, subdomain: subdomain)
-              completion(message: Result.Success(Message.LoggedIn.rawValue))
-            }
-            catch {
-              completion(message: Result.Failure(CommandError.UnknownError(error)))
-            }
-          }
-        case .Failure(let error):
-          completion(message: Result.Failure(CommandError.UnknownError(error)))
-        }
-      })      
+      try loginWithClient(kanbanizeClient, completion: completion)
     }
     else {
       throw CommandError.WrongCommandConfiguration(command: self)
+    }
+  }
+  
+  private func loginWithClient(client: Client, completion: CommandCompletion) throws {
+    client.login { result in
+      switch result {
+      case .Success(let loginResult):
+        if let apiKey = loginResult?.apiKey {
+          do {
+            try self.saveLoginInfo(apiKey: apiKey, subdomain: client.subdomain)
+            completion(message: Result.Success(Message.LoggedIn.rawValue))
+          }
+          catch {
+            completion(message: Result.Failure(CommandError.UnknownError(error)))
+          }
+        }
+      case .Failure(let error):
+        completion(message: Result.Failure(CommandError.UnknownError(error)))
+      }
     }
   }
   
