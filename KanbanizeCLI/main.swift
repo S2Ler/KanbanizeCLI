@@ -8,17 +8,41 @@
 
 import Foundation
 
+func runUntil(finished finished: () -> Bool) {
+  while !finished() {
+    NSRunLoop.currentRunLoop().runUntilDate(NSDate(timeIntervalSinceNow: 0.25))
+  }
+}
+
+let locksmithAccountName = "KanbanizeCLI"
+
 if Args.parsed.parameters.contains("help") {
   exit(0)
 }
 
-let flags = Args.parsed.flags
-guard let apiKey = flags["api_key"],
-  let domain = flags["domain"] else { exit(-1) }
+let args = Args.parsed
 
-let client = Client(subdomain: domain, loginInfo: .APIKey(apiKey))
-client.login { (result) in
-  print(result)
+let supportedCommandTypes = [LoginCommand.self]
+for commandType in supportedCommandTypes {
+  CommandFactory.registerCommandType(commandType)
 }
 
-NSRunLoop.currentRunLoop().run()
+do {
+  let command = try CommandFactory.makeCommand(args)
+  var finished = false
+  try command.execute({ (message) in
+    switch message {
+    case .Success(let message):
+      print("Success: \(message)")
+    case .Failure(let error):
+      print("Error: \(error)")
+    }
+    finished = true
+  })
+  runUntil(finished: { () -> Bool in
+    return finished
+  })
+}
+catch {
+  print(error)
+}

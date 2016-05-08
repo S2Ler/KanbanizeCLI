@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092DFA781CDFB17A0046E521 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092DFA771CDFB17A0046E521 /* Login.swift */; };
 		096D7AD51CC695640077CB3B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7AD41CC695640077CB3B /* main.swift */; };
 		096D7AE41CC696C50077CB3B /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7AE31CC696C50077CB3B /* Commands.swift */; };
 		096D7B121CC69C380077CB3B /* Agree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7AF61CC69C380077CB3B /* Agree.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		092DFA771CDFB17A0046E521 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		096D7AD11CC695640077CB3B /* KanbanizeCLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KanbanizeCLI; sourceTree = BUILT_PRODUCTS_DIR; };
 		096D7AD41CC695640077CB3B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		096D7AE31CC696C50077CB3B /* Commands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				096D7AD41CC695640077CB3B /* main.swift */,
 				096D7AE31CC696C50077CB3B /* Commands.swift */,
+				092DFA771CDFB17A0046E521 /* Login.swift */,
 			);
 			path = KanbanizeCLI;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				096D7B271CC69C390077CB3B /* RunResults.swift in Sources */,
 				096D7B1A1CC69C380077CB3B /* AskSettings.swift in Sources */,
 				096D7B1F1CC69C380077CB3B /* Env.swift in Sources */,
+				092DFA781CDFB17A0046E521 /* Login.swift in Sources */,
 				096D7B2B1CC69C390077CB3B /* StringStyle.swift in Sources */,
 				096D7B251CC69C390077CB3B /* Runner.swift in Sources */,
 				096D7B1C1CC69C380077CB3B /* ChooseSettings.swift in Sources */,
