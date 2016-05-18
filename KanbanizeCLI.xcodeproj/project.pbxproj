@@ -137,7 +137,9 @@
 				096D7AD31CC695640077CB3B /* KanbanizeCLI */,
 				096D7AD21CC695640077CB3B /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		096D7AD21CC695640077CB3B /* Products */ = {
 			isa = PBXGroup;
