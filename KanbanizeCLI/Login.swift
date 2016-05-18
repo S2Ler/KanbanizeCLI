@@ -61,6 +61,21 @@ final class LoginCommand: Command {
     try Locksmith.updateData([Params.APIKey.rawValue: apiKey],
                              forUserAccount: locksmithAccountName)
   }
+    
+  static internal func createClient() throws -> Client {
+    guard let data = Locksmith.loadDataForUserAccount(locksmithAccountName) else { throw LoginError.NotLoggedIn }
+    if let apiKey = data[Params.APIKey.rawValue] as? String,
+      let subdomain = data[Params.Subdomain.rawValue] as? String {
+      return Client(subdomain: subdomain, loginInfo: .APIKey(apiKey))
+    }
+    else {
+      throw LoginError.NotLoggedIn
+    }
+  }
+  
+  enum LoginError: ErrorType {
+    case NotLoggedIn
+  }
   
   enum Params: String {
     case APIKey = "api_key"
@@ -72,5 +87,5 @@ final class LoginCommand: Command {
   private enum Message: String {
     case LoggedIn = "Logged In"
   }
-
 }
+
