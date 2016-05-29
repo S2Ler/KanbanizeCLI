@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		092DFA781CDFB17A0046E521 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092DFA771CDFB17A0046E521 /* Login.swift */; };
+		092DFA7C1CDFC6D20046E521 /* SwitchTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092DFA7B1CDFC6D20046E521 /* SwitchTask.swift */; };
+		092DFA7F1CDFC7E10046E521 /* AddCommentCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092DFA7E1CDFC7E10046E521 /* AddCommentCommand.swift */; };
 		096D7AD51CC695640077CB3B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7AD41CC695640077CB3B /* main.swift */; };
 		096D7AE41CC696C50077CB3B /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7AE31CC696C50077CB3B /* Commands.swift */; };
 		096D7B121CC69C380077CB3B /* Agree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7AF61CC69C380077CB3B /* Agree.swift */; };
@@ -70,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		092DFA771CDFB17A0046E521 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		092DFA7B1CDFC6D20046E521 /* SwitchTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTask.swift; sourceTree = "<group>"; };
+		092DFA7E1CDFC7E10046E521 /* AddCommentCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCommentCommand.swift; sourceTree = "<group>"; };
 		096D7AD11CC695640077CB3B /* KanbanizeCLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KanbanizeCLI; sourceTree = BUILT_PRODUCTS_DIR; };
 		096D7AD41CC695640077CB3B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		096D7AE31CC696C50077CB3B /* Commands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
@@ -130,6 +134,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		092DFA7D1CDFC6E00046E521 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				092DFA771CDFB17A0046E521 /* Login.swift */,
+				092DFA7B1CDFC6D20046E521 /* SwitchTask.swift */,
+				092DFA7E1CDFC7E10046E521 /* AddCommentCommand.swift */,
+			);
+			name = Commands;
+			sourceTree = "<group>";
+		};
 		096D7AC81CC695640077CB3B = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +168,7 @@
 			children = (
 				096D7AD41CC695640077CB3B /* main.swift */,
 				096D7AE31CC696C50077CB3B /* Commands.swift */,
-				092DFA771CDFB17A0046E521 /* Login.swift */,
+				092DFA7D1CDFC6E00046E521 /* Commands */,
 			);
 			path = KanbanizeCLI;
 			sourceTree = "<group>";
@@ -303,6 +317,7 @@
 				096D7B241CC69C390077CB3B /* PromptSettings.swift in Sources */,
 				096D7B3A1CC69C470077CB3B /* Executor.swift in Sources */,
 				096D7AD51CC695640077CB3B /* main.swift in Sources */,
+				092DFA7F1CDFC7E10046E521 /* AddCommentCommand.swift in Sources */,
 				096D7B501CC6A3520077CB3B /* LocksmithSecurityClass.swift in Sources */,
 				096D7B4C1CC6A3520077CB3B /* LocksmithAccessibleOption.swift in Sources */,
 				096D7B4B1CC6A3520077CB3B /* Locksmith.swift in Sources */,
@@ -316,6 +331,7 @@
 				096D7B391CC69C470077CB3B /* Client.swift in Sources */,
 				096D7B3C1CC69C470077CB3B /* LogTime.swift in Sources */,
 				096D7B181CC69C380077CB3B /* Ask.swift in Sources */,
+				092DFA7C1CDFC6D20046E521 /* SwitchTask.swift in Sources */,
 				096D7B191CC69C380077CB3B /* AskerValidator.swift in Sources */,
 				096D7B2D1CC69C390077CB3B /* TaskPipe.swift in Sources */,
 				096D7B221CC69C390077CB3B /* PromptPrinter.swift in Sources */,

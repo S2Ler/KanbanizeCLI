@@ -9,7 +9,8 @@
 import Foundation
 
 final class LoginCommand: Command {
-  let args: ParsedArgs
+  private static let service = "LoginInfo"
+  private let args: ParsedArgs
   
   init(args: ParsedArgs) {
     self.args = args
@@ -58,12 +59,16 @@ final class LoginCommand: Command {
   static var name: String { return "login" }
   
   private func saveLoginInfo(apiKey apiKey: String, subdomain: String) throws {
-    try Locksmith.updateData([Params.APIKey.rawValue: apiKey],
-                             forUserAccount: locksmithAccountName)
+    try Locksmith.updateData([Params.APIKey.rawValue: apiKey, Params.Subdomain.rawValue: subdomain],
+                             forUserAccount: locksmithAccountName,
+                             inService: LoginCommand.service)
   }
     
   static internal func createClient() throws -> Client {
-    guard let data = Locksmith.loadDataForUserAccount(locksmithAccountName) else { throw LoginError.NotLoggedIn }
+    guard let data = Locksmith.loadDataForUserAccount(locksmithAccountName, inService: LoginCommand.service) else {
+      throw LoginError.NotLoggedIn
+    }
+    
     if let apiKey = data[Params.APIKey.rawValue] as? String,
       let subdomain = data[Params.Subdomain.rawValue] as? String {
       return Client(subdomain: subdomain, loginInfo: .APIKey(apiKey))

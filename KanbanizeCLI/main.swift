@@ -22,8 +22,10 @@ if Args.parsed.parameters.contains("help") {
 
 let args = Args.parsed
 
-let supportedCommandTypes = [LoginCommand.self]
+let supportedCommandTypes = [LoginCommand.self, SwitchTask.self, AddCommentCommand.self]
+
 for commandType in supportedCommandTypes {
+  guard let commandType = commandType as? Command.Type else { preconditionFailure() }
   CommandFactory.registerCommandType(commandType)
 }
 
