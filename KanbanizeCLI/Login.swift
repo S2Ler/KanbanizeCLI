@@ -44,7 +44,8 @@ final class LoginCommand: Command {
         if let apiKey = loginResult?.apiKey {
           do {
             try self.saveLoginInfo(apiKey: apiKey, subdomain: client.subdomain)
-            completion(message: Result.Success(Message.LoggedIn.rawValue))
+            let message = loginResult != nil ? "\(loginResult!)" : Message.LoggedIn.rawValue
+            completion(message: Result.Success(message))
           }
           catch {
             completion(message: Result.Failure(CommandError.UnknownError(error)))
