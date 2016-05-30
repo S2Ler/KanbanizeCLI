@@ -56,6 +56,7 @@
 		096D7B4E1CC6A3520077CB3B /* LocksmithInternetAuthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7B471CC6A3520077CB3B /* LocksmithInternetAuthenticationType.swift */; };
 		096D7B4F1CC6A3520077CB3B /* LocksmithInternetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7B481CC6A3520077CB3B /* LocksmithInternetProtocol.swift */; };
 		096D7B501CC6A3520077CB3B /* LocksmithSecurityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D7B491CC6A3520077CB3B /* LocksmithSecurityClass.swift */; };
+		099A9C551CFCD5A700303BA2 /* LogTimeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099A9C541CFCD5A700303BA2 /* LogTimeCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -121,6 +122,7 @@
 		096D7B471CC6A3520077CB3B /* LocksmithInternetAuthenticationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocksmithInternetAuthenticationType.swift; path = ThirdParty/Locksmith/Source/LocksmithInternetAuthenticationType.swift; sourceTree = "<group>"; };
 		096D7B481CC6A3520077CB3B /* LocksmithInternetProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocksmithInternetProtocol.swift; path = ThirdParty/Locksmith/Source/LocksmithInternetProtocol.swift; sourceTree = "<group>"; };
 		096D7B491CC6A3520077CB3B /* LocksmithSecurityClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocksmithSecurityClass.swift; path = ThirdParty/Locksmith/Source/LocksmithSecurityClass.swift; sourceTree = "<group>"; };
+		099A9C541CFCD5A700303BA2 /* LogTimeCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTimeCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				092DFA771CDFB17A0046E521 /* Login.swift */,
 				092DFA7B1CDFC6D20046E521 /* SwitchTask.swift */,
 				092DFA7E1CDFC7E10046E521 /* AddCommentCommand.swift */,
+				099A9C541CFCD5A700303BA2 /* LogTimeCommand.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				096D7B121CC69C380077CB3B /* Agree.swift in Sources */,
 				096D7B171CC69C380077CB3B /* Argument.swift in Sources */,
 				096D7B231CC69C390077CB3B /* PromptReader.swift in Sources */,
+				099A9C551CFCD5A700303BA2 /* LogTimeCommand.swift in Sources */,
 				096D7B3E1CC69C470077CB3B /* Request.swift in Sources */,
 				096D7B3F1CC69C470077CB3B /* Response.swift in Sources */,
 				096D7B151CC69C380077CB3B /* Args.swift in Sources */,
