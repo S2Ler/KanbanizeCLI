@@ -30,8 +30,7 @@ final class AddCommentCommand: Command {
         (result: Result<Client.AddCommentResult, ClientError>) in
         switch result {
         case .Success(let addCommentResult):
-          print(addCommentResult)
-          completion(message: Result.Success("Added"))
+          completion(message: Result.Success("\(addCommentResult)"))
         case .Failure(let clientError):
           completion(message: Result.Failure(CommandError.UnknownError(clientError)))
         }
