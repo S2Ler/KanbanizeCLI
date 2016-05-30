@@ -16,7 +16,7 @@ final class SwitchTask: Command {
   }
   
   func execute(completion: CommandCompletion) throws {
-    guard let taskID = args.flags[Params.TaskID.rawValue] else { throw CommandError.WrongCommandConfiguration(command: self) }
+    guard let taskID = args.parameters.dropFirst().first else { throw CommandError.WrongCommandConfiguration(command: self) }
     
     try Locksmith.updateData([Params.TaskID.rawValue: taskID],
                              forUserAccount: locksmithAccountName,
