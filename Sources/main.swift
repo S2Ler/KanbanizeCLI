@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import Swiftline
+import KanbanizeAPI
 
-func runUntil(finished finished: () -> Bool) {
+func runUntil(finished: () -> Bool) {
   while !finished() {
-    NSRunLoop.currentRunLoop().runUntilDate(NSDate(timeIntervalSinceNow: 0.25))
+    RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.25))
   }
 }
 
@@ -22,7 +24,7 @@ if Args.parsed.parameters.contains("help") {
 
 let args = Args.parsed
 
-let supportedCommandTypes = [LoginCommand.self, SwitchTask.self, AddCommentCommand.self, LogTimeCommand.self]
+let supportedCommandTypes = [LoginCommand.self, SwitchTask.self, AddCommentCommand.self, LogTimeCommand.self] as [Any]
 
 for commandType in supportedCommandTypes {
   guard let commandType = commandType as? Command.Type else { preconditionFailure() }
@@ -34,9 +36,9 @@ do {
   var finished = false
   try command.execute({ (message) in
     switch message {
-    case .Success(let message):
+    case .success(let message):
       print("Success: \(message)")
-    case .Failure(let error):
+    case .failure(let error):
       print("Error: \(error)")
     }
     finished = true

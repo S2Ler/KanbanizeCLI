@@ -7,22 +7,25 @@
 //
 
 import Foundation
+import Swiftline
+import KanbanizeAPI
+import Locksmith
 
 final class SwitchTask: Command {
-  private static let service = "SwitchTask"
-  private let args: ParsedArgs
+  fileprivate static let service = "SwitchTask"
+  fileprivate let args: ParsedArgs
   init(args: ParsedArgs) {
     self.args = args
   }
   
-  func execute(completion: CommandCompletion) throws {
-    guard let taskID = args.parameters.dropFirst().first else { throw CommandError.WrongCommandConfiguration(command: self) }
+  func execute(_ completion: @escaping CommandCompletion) throws {
+    guard let taskID = args.parameters.dropFirst().first else { throw CommandError.wrongCommandConfiguration(command: self) }
     
-    try Locksmith.updateData([Params.TaskID.rawValue: taskID],
+    try Locksmith.updateData(data: [Params.TaskID.rawValue: taskID],
                              forUserAccount: locksmithAccountName,
                              inService: SwitchTask.service)
     
-    completion(message: Result.Success("Task Switched: \(taskID)"))
+    completion(Result.success("Task Switched: \(taskID)"))
   }
   
   static var name: String { return "switch_task" }
@@ -31,14 +34,14 @@ final class SwitchTask: Command {
     case TaskID = "task_id"
   }
   
-  enum SwitchTaskError: ErrorType {
-    case TaskNotSelected
+  enum SwitchTaskError: Error {
+    case taskNotSelected
   }
   
   internal static func currentTask() throws -> TaskID {
-    guard let data = Locksmith.loadDataForUserAccount(locksmithAccountName, inService: SwitchTask.service),
+    guard let data = Locksmith.loadDataForUserAccount(userAccount: locksmithAccountName, inService: SwitchTask.service),
       let task_id = data[Params.TaskID.rawValue] as? String else {
-      throw SwitchTaskError.TaskNotSelected
+      throw SwitchTaskError.taskNotSelected
     }
     
     return TaskID(task_id)

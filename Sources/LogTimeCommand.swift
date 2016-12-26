@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import Swiftline
+import KanbanizeAPI
 
 final class LogTimeCommand: Command {
-  private let args: ParsedArgs
+  fileprivate let args: ParsedArgs
   
   init(args: ParsedArgs) {
     self.args = args
@@ -17,10 +19,10 @@ final class LogTimeCommand: Command {
   
   var client: Client?
   
-  func execute(completion: CommandCompletion) throws {
-    let timeString = args.parameters.dropFirst().joinWithSeparator(" ")
+  func execute(_ completion: @escaping CommandCompletion) throws {
+    let timeString = args.parameters.dropFirst().joined(separator: " ")
     
-    guard let hours = Double(timeString) else { throw CommandError.WrongCommandConfiguration(command: self) }
+    guard let hours = Double(timeString) else { throw CommandError.wrongCommandConfiguration(command: self) }
     
     do {
       let client = try LoginCommand.createClient()
@@ -30,15 +32,15 @@ final class LogTimeCommand: Command {
       try client.logTime(LoggedTime(hours: hours), taskID: taskID) {
         (result: Result<Client.LogTimeResult, ClientError>) in
         switch result {
-        case .Success(let logTimeResult):
-          completion(message: Result.Success("\(logTimeResult)"))
-        case .Failure(let clientError):
-          completion(message: Result.Failure(CommandError.UnknownError(clientError)))
+        case .success(let logTimeResult):
+          completion(Result.success("\(logTimeResult)"))
+        case .failure(let clientError):
+          completion(Result.failure(CommandError.unknownError(clientError)))
         }
       }
     }
     catch {
-      completion(message: Result.Failure(CommandError.UnknownError(error)))
+      completion(Result.failure(CommandError.unknownError(error)))
     }
   }
   

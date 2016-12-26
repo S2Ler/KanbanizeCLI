@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import Swiftline
+import KanbanizeAPI
 
 final class AddCommentCommand: Command {
-  private let args: ParsedArgs
+  fileprivate let args: ParsedArgs
   
   init(args: ParsedArgs) {
     self.args = args
@@ -17,8 +19,8 @@ final class AddCommentCommand: Command {
   
   var client: Client?
   
-  func execute(completion: CommandCompletion) throws {
-    let comment = args.parameters.dropFirst().joinWithSeparator(" ")
+  func execute(_ completion: @escaping CommandCompletion) throws {
+    let comment = args.parameters.dropFirst().joined(separator: " ")
     
     do {
       let client = try LoginCommand.createClient()
@@ -29,15 +31,15 @@ final class AddCommentCommand: Command {
       try client.addComment(comment, taskID: taskID) {
         (result: Result<Client.AddCommentResult, ClientError>) in
         switch result {
-        case .Success(let addCommentResult):
-          completion(message: Result.Success("\(addCommentResult)"))
-        case .Failure(let clientError):
-          completion(message: Result.Failure(CommandError.UnknownError(clientError)))
+        case .success(let addCommentResult):
+          completion(Result.success("\(addCommentResult)"))
+        case .failure(let clientError):
+          completion(Result.failure(CommandError.unknownError(clientError)))
         }
       }
     }
     catch {
-      completion(message: Result.Failure(CommandError.UnknownError(error)))
+      completion(Result.failure(CommandError.unknownError(error)))
     }
   }
   
